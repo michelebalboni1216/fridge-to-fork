@@ -12,8 +12,8 @@ export default async function handler(req, res) {
   if (!Array.isArray(ingredients) || ingredients.length < 1 || ingredients.length > 5 ||
       ingredients.some(p => typeof p !== 'string' || !p.trim() || p.trim().length > 60) ||
       !Number.isInteger(servings) || servings < 1 || servings > 4 ||
-      typeof temperature !== 'number' || !Number.isFinite(temperature) || temperature < 0 || temperature > 2) {
-    return res.status(400).json({ error: 'Enter 1 to 5 ingredients, 1 to 4 servings, and a temperature between 0 and 2.' });
+      typeof temperature !== 'number' || !Number.isFinite(temperature) || temperature < 0 || temperature > 1.5) {
+    return res.status(400).json({ error: 'Enter 1 to 5 ingredients, 1 to 4 servings, and a temperature between 0 and 1.5.' });
   }
   const model = process.env.OPENAI_MODEL?.trim() || 'gpt-4o-mini';
   const key = process.env.OPENAI_API_KEY?.trim();
