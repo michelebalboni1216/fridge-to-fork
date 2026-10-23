@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn one to five ingredients into a simple recipe with AI.">
+  <title>Fridge to Fork · Your AI recipe guide</title>
+  <style>
+    :root{color-scheme:light;--ink:#252b27;--muted:#626b63;--green:#285b42;--line:#dedfd5;--paper:#f7f6ef}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:32px 24px 48px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:24px;border-bottom:1px solid var(--line)}.brand{font-weight:750;letter-spacing:-.5px}.badge{font-size:12px;background:#e5eadf;padding:5px 12px;border-radius:30px}.intro{max-width:720px;padding:48px 0 32px}.eyebrow{color:var(--green);font-size:12px;font-weight:750;letter-spacing:2px;text-transform:uppercase}h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,6vw,68px);line-height:1.08;letter-spacing:-2px;margin:14px 0 18px}h1 em{color:var(--green)}.intro p{max-width:550px;color:var(--muted);font-size:17px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.card{background:#fffef9;border:1px solid var(--line);border-radius:20px;padding:28px}h2{font-size:21px;letter-spacing:-.5px;margin:0 0 22px}.number{font-size:12px;color:var(--green);margin-right:9px}label,legend{font-weight:650;font-size:14px}fieldset{border:0;padding:0;margin:0 0 22px}legend{margin-bottom:10px}.words{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.word label{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-bottom:4px}input[type=text],select{width:100%;min-width:0;font:inherit;border:1px solid #cdd2c8;background:#fff;border-radius:9px;padding:11px;color:var(--ink)}input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid #b4cdbb;outline-offset:3px}select{margin:8px 0 22px}.rangehead{display:flex;justify-content:space-between;align-items:center}output{font-variant-numeric:tabular-nums;background:#e7efdf;color:var(--green);border-radius:6px;padding:2px 9px;font-weight:700}input[type=range]{width:100%;accent-color:var(--green);margin:18px 0 3px;cursor:pointer}.ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}.hint{font-size:12px;color:var(--muted);margin:12px 0 22px}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:13px 18px}.primary{width:100%;color:#fff;background:var(--green);font-weight:650}.primary:hover{background:#1e4934}button:disabled{opacity:.65;cursor:wait}.secondary{background:#edeedc;color:var(--green);font-size:13px;padding:9px 14px}.resulthead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.resulthead h2{margin:0}.story{white-space:pre-wrap;font:19px/1.85 Georgia,serif;overflow-wrap:anywhere;min-height:245px}.empty{color:#7b8277;font:17px/1.8 system-ui,sans-serif;display:flex;flex-direction:column;justify-content:center}.empty span{font:46px Georgia,serif;color:#a8b59a;margin-bottom:16px}.meta{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:24px}.error{color:#9a302c;font-size:14px;margin-bottom:0}.note{margin-top:24px;color:var(--muted);font-size:13px;max-width:790px}footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}[hidden]{display:none!important}@media(max-width:720px){main{padding:20px 16px 32px}.intro{padding:32px 0 20px}.grid{grid-template-columns:1fr}.card{padding:22px}.badge{font-size:10px}h1{letter-spacing:-1px}.story{min-height:160px}}@media(prefers-reduced-motion:no-preference){button{transition:background .15s}}
+  </style>
+</head>
+<body>
+<main>
+  <header><div class="brand">Fridge to Fork.</div><span class="badge">A Generative AI experiment</span></header>
+  <section class="intro"><div class="eyebrow">A few ingredients. A fresh idea.</div><h1>Open your fridge.<br>Find your <em>next dish.</em></h1><p>One to five ingredients. Tell us what you have and let AI suggest something simple to cook.</p></section>
+  <div class="grid">
+    <form class="card" id="form">
+      <h2><span class="number">01</span>What’s in your kitchen?</h2>
+      <fieldset><legend>Add 1 to 5 ingredients</legend><div class="words">
+        <div class="word"><label for="i1">Ingredient 1</label><input id="i1" data-ingredient type="text" placeholder="e.g. pasta" maxlength="60"></div>
+        <div class="word"><label for="i2">Ingredient 2</label><input id="i2" data-ingredient type="text" placeholder="e.g. tomatoes" maxlength="60"></div>
+        <div class="word"><label for="i3">Ingredient 3</label><input id="i3" data-ingredient type="text" placeholder="e.g. mozzarella" maxlength="60"></div>
+        <div class="word"><label for="i4">Ingredient 4</label><input id="i4" data-ingredient type="text" placeholder="Optional" maxlength="60"></div>
+        <div class="word"><label for="i5">Ingredient 5</label><input id="i5" data-ingredient type="text" placeholder="Optional" maxlength="60"></div>
+      </div></fieldset>
+      <p class="hint">One ingredient per field. Fill in at least one; leave the others blank. Only water is assumed available. Include salt or oil in your list if you want to use them.</p>
+      <label for="servings">How many servings?</label><select id="servings"><option value="1">1 serving</option><option value="2" selected>2 servings</option><option value="3">3 servings</option><option value="4">4 servings</option></select>
+      <div class="rangehead"><label for="temperature">Temperature</label><output id="tempvalue" for="temperature">0.7</output></div>
+      <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" aria-describedby="temphint">
+      <div class="ends"><span>0 · More predictable</span><span>2 · More random</span></div>
+      <p class="hint" id="temphint">Temperature controls randomness in the recipe generation. A higher value does not guarantee a better recipe.</p>
+      <button class="primary" id="generate" type="submit">Create my recipe ↗</button>
+      <p id="error" class="error" role="alert" hidden></p>
+    </form>
+    <section class="card" aria-labelledby="resulttitle">
+      <div class="resulthead"><h2 id="resulttitle"><span class="number">02</span>Your recipe</h2><button class="secondary" id="copy" type="button" hidden>Copy</button></div>
+      <div id="recipe" class="story empty" aria-live="polite"><span aria-hidden="true">“</span>Your next dish starts here.<br>Add your ingredients and set the temperature.</div>
+      <div class="meta" id="meta">Suggested quantities, estimated times, and step-by-step instructions.</div>
+    </section>
+  </div>
+  <p class="note">Try an experiment: keep the ingredients and servings the same, then compare several recipes at temperatures 0.2 and 1.2. This slider changes the actual model parameter, not the oven temperature. Review ingredients and cooking instructions before following an AI-generated recipe.</p>
+  <footer>Fridge to Fork · Generative AI project · Recipes are generated by AI.</footer>
+</main>
+<script src="/app.js" defer></script>
+</body>
+</html>
