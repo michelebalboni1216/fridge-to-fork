@@ -27,8 +27,8 @@
       <p class="hint">One ingredient per field. Fill in at least one; leave the others blank. Only water is assumed available. Include salt or oil in your list if you want to use them.</p>
       <label for="servings">How many servings?</label><select id="servings"><option value="1">1 serving</option><option value="2" selected>2 servings</option><option value="3">3 servings</option><option value="4">4 servings</option></select>
       <div class="rangehead"><label for="temperature">Temperature</label><output id="tempvalue" for="temperature">0.7</output></div>
-      <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" aria-describedby="temphint">
-      <div class="ends"><span>0 · More predictable</span><span>2 · More random</span></div>
+      <input type="range" id="temperature" min="0" max="1.5" step="0.1" value="0.7" aria-describedby="temphint">
+      <div class="ends"><span>0 · More predictable</span><span>1.5 · More random</span></div>
       <p class="hint" id="temphint">Temperature controls randomness in the recipe generation. A higher value does not guarantee a better recipe.</p>
       <button class="primary" id="generate" type="submit">Create my recipe ↗</button>
       <p id="error" class="error" role="alert" hidden></p>
